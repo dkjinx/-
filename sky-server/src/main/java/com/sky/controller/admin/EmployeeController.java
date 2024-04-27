@@ -6,6 +6,7 @@ import com.sky.constant.MessageConstant;
 import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.entity.Employee;
+import com.sky.handler.GlobalExceptionHandler;
 import com.sky.properties.JwtProperties;
 import com.sky.result.Result;
 import com.sky.service.EmployeeService;
@@ -88,7 +89,7 @@ public class EmployeeController {
      */
     @PostMapping("/add")
     @ApiOperation("新增员工")
-    public Result<String> addEmployee(@RequestBody EmployeeDTO employeeDTO){
+    public Result<String> addEmployee(@RequestBody EmployeeDTO employeeDTO)  {
         log.info("新增员工:{}",employeeDTO);
         employeeService.save(employeeDTO);
         return Result.success();
